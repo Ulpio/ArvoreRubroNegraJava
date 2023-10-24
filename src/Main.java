@@ -12,6 +12,6 @@ public class Main {
         arvore.inserir(70);
         arvore.inserir(65);
         arvore.listar();
-        arvore.buscar(53);
+        arvore.buscar(48);
     }
 }
