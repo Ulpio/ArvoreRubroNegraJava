@@ -4,7 +4,7 @@ public class RubroNegra{
     
     public RubroNegra(){
         this.nil = new Node(0);
-        this.nil.cor = "BLACK";
+        this.nil.cor = "Preto";
         this.raiz = this.nil;
     }
 
@@ -30,47 +30,47 @@ public class RubroNegra{
         }
         novo.esquerda = this.nil;
         novo.direita = this.nil;
-        novo.cor = "RED";
+        novo.cor = "Vermelho";
         this.inserirFixup(novo);
     }
 
     public void inserirFixup(Node z){
-        while(z.pai.cor == "RED"){
+        while(z.pai.cor == "Vermelho"){
             if(z.pai == z.pai.pai.esquerda){
                 Node y = z.pai.pai.direita;
-                if(y.cor == "RED"){
-                    z.pai.cor = "BLACK";
-                    y.cor = "BLACK";
-                    z.pai.pai.cor = "RED";
+                if(y.cor == "Vermelho"){
+                    z.pai.cor = "Preto";
+                    y.cor = "Preto";
+                    z.pai.pai.cor = "Vermelho";
                     z = z.pai.pai;
                 }else{
                     if(z == z.pai.direita){
                         z = z.pai;
                         this.rotacaoEsquerda(z);
                     }
-                    z.pai.cor = "BLACK";
-                    z.pai.pai.cor = "RED";
+                    z.pai.cor = "Preto";
+                    z.pai.pai.cor = "Vermelho";
                     this.rotacaoDireita(z.pai.pai);
                 }
             }else{
                 Node y = z.pai.pai.esquerda;
-                if(y.cor == "RED"){
-                    z.pai.cor = "BLACK";
-                    y.cor = "BLACK";
-                    z.pai.pai.cor = "RED";
+                if(y.cor == "Vermelho"){
+                    z.pai.cor = "Preto";
+                    y.cor = "Preto";
+                    z.pai.pai.cor = "Vermelho";
                     z = z.pai.pai;
                 }else{
                     if(z == z.pai.esquerda){
                         z = z.pai;
                         this.rotacaoDireita(z);
                     }
-                    z.pai.cor = "BLACK";
-                    z.pai.pai.cor = "RED";
+                    z.pai.cor = "Preto";
+                    z.pai.pai.cor = "Vermelho";
                     this.rotacaoEsquerda(z.pai.pai);
                 }
             }
         }
-        this.raiz.cor = "BLACK";
+        this.raiz.cor = "Preto";
     }
 
     public void rotacaoEsquerda(Node x){
@@ -132,7 +132,7 @@ public class RubroNegra{
     public void listar(Node x){
         if(x != this.nil){
             this.listar(x.esquerda);
-            System.out.println(x.valor);
+            System.out.println(x.valor + x.cor);
             this.listar(x.direita);
         }
     }
