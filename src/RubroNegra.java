@@ -1,6 +1,7 @@
 public class RubroNegra{
     Node raiz;
     Node nil;
+    
     public RubroNegra(){
         this.nil = new Node(0);
         this.nil.cor = "BLACK";
